@@ -24,3 +24,9 @@ Please replace all user variables in the above command defined by <> with the co
 ```
 http://<host ip>:6789
 ```
+
+Default credentials
+
+username: nzbget
+password: tegbzn6789
+
