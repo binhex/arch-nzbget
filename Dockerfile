@@ -11,7 +11,7 @@ RUN pacman -Sy --noconfirm
 RUN packer -S nzbget-svn --noconfirm
 
 # copy pre check bash shell script (checks for existence of nzbget config)
-ADD nzbget-precheck.sh /tmp/nzbget-precheck.sh
+ADD nzbget-precheck.sh /etc/supervisor/conf.d/nzbget-precheck.sh
 
 # docker settings
 #################
