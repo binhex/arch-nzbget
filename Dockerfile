@@ -13,6 +13,9 @@ RUN packer -S nzbget-svn --noconfirm
 # copy pre check bash shell script (checks for existence of nzbget config)
 ADD nzbget-precheck.sh /etc/supervisor/conf.d/nzbget-precheck.sh
 
+# make pre check bash shell script executable
+RUN chmod +x /etc/supervisor/conf.d/nzbget-precheck.sh
+
 # docker settings
 #################
 
