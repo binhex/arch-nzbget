@@ -9,8 +9,6 @@ ADD https://aur.archlinux.org/packages/pa/packer/packer.tar.gz /root/packer.tar.
 
 # copy prerun bash shell script (checks for existence of nzbget config)
 ADD start.sh /home/nobody/start.sh
-chown -R nobody:users /home/nobody/start.sh
-chmod -R 775 /home/nobody/start.sh
 
 # add supervisor conf file for app
 ADD nzbget.conf /etc/supervisor/conf.d/nzbget.conf
@@ -29,8 +27,8 @@ RUN pacman -Sy --noconfirm && \
 	packer -S nzbget-svn --noconfirm && \
 	pacman -Ru base-devel --noconfirm && \
 	pacman -Scc --noconfirm && \
-	chown -R nobody:users /usr/bin/nzbget /usr/share/nzbget/nzbget.conf && \
-	chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf && \	
+	chown -R nobody:users /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
+	chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
 	rm -rf /archlinux/usr/share/locale && \
 	rm -rf /archlinux/usr/share/man && \
 	rm -rf /root/* && \
