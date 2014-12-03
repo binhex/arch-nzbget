@@ -8,8 +8,8 @@ MAINTAINER binhex
 ADD https://aur.archlinux.org/packages/pa/packer/packer.tar.gz /root/packer.tar.gz
 
 # copy prerun bash shell script (checks for existence of nzbget config)
-ADD prerun.sh /etc/supervisor/conf.d/prerun.sh
-RUN chmod +x /etc/supervisor/conf.d/prerun.sh
+ADD start.sh /home/nobody/start.sh
+RUN chmod +x /home/nobody/start.sh
 
 # add supervisor conf file for app
 ADD nzbget.conf /etc/supervisor/conf.d/nzbget.conf
@@ -28,8 +28,8 @@ RUN pacman -Sy --noconfirm && \
 	packer -S nzbget-svn --noconfirm && \
 	pacman -Ru base-devel --noconfirm && \
 	pacman -Scc --noconfirm && \
-	chown -R nobody:users /usr/bin/nzbget && \
-	chmod -R 775 /usr/bin/nzbget && \	
+	chown -R nobody:users /usr/bin/nzbget /usr/share/nzbget/nzbget.conf && \
+	chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf && \	
 	rm -rf /archlinux/usr/share/locale && \
 	rm -rf /archlinux/usr/share/man && \
 	rm -rf /root/* && \
