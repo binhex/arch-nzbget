@@ -16,4 +16,4 @@ else
 fi
 
 #run nzbget specifying config path and daemon flag
-/usr/bin/nzbget -s -c /config/nzbget.conf
+/usr/bin/nzbget -D -c /config/nzbget.conf
