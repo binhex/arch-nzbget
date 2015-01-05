@@ -16,9 +16,9 @@ ADD nzbget.conf /etc/supervisor/conf.d/nzbget.conf
 # install install app using pacman, set perms, cleanup
 RUN pacman -Sy --noconfirm && \
 	pacman -S nzbget --noconfirm && \
-	pacman -Scc --noconfirm && \
 	chown -R nobody:users /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
 	chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
+	yes|pacman -Scc && \	
 	rm -rf /usr/share/locale/* && \
 	rm -rf /usr/share/man/* && \
 	rm -rf /root/* && \
