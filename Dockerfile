@@ -1,4 +1,4 @@
-FROM binhex/arch-base:2014101300
+FROM binhex/arch-base:2015010500
 MAINTAINER binhex
 
 # additional files
@@ -19,8 +19,8 @@ RUN pacman -Sy --noconfirm && \
 	pacman -Scc --noconfirm && \
 	chown -R nobody:users /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
 	chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
-	rm -rf /archlinux/usr/share/locale && \
-	rm -rf /archlinux/usr/share/man && \
+	rm -rf /usr/share/locale/* && \
+	rm -rf /usr/share/man/* && \
 	rm -rf /root/* && \
 	rm -rf /tmp/*
 	
