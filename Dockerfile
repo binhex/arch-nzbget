@@ -1,4 +1,4 @@
-FROM binhex/arch-base:2015010500
+FROM binhex/arch-base:2015030300
 MAINTAINER binhex
 
 # additional files
@@ -10,19 +10,15 @@ ADD start.sh /home/nobody/start.sh
 # add supervisor conf file for app
 ADD nzbget.conf /etc/supervisor/conf.d/nzbget.conf
 
+# add install bash script
+ADD install.sh /root/install.sh
+
 # install app
 #############
 
-# install install app using pacman, set perms, cleanup
-RUN pacman -Sy --noconfirm && \
-	pacman -S nzbget --noconfirm && \
-	chown -R nobody:users /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
-	chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh && \
-	yes|pacman -Scc && \	
-	rm -rf /usr/share/locale/* && \
-	rm -rf /usr/share/man/* && \
-	rm -rf /root/* && \
-	rm -rf /tmp/*
+# make executable and run bash scripts to install app
+RUN chmod +x /root/install.sh /home/nobody/start.sh && \
+	/bin/bash /root/install.sh
 	
 # docker settings
 #################
