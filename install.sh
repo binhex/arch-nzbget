@@ -7,9 +7,6 @@ pacman_packages="unzip unrar nzbget"
 pacman -Sy --noconfirm
 pacman -S --needed $pacman_packages --noconfirm
 
-# call aur packer script
-source /root/packer.sh
-
 # set permissions
 chown -R nobody:users /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh
 chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh
