@@ -4,20 +4,20 @@ MAINTAINER binhex
 # additional files
 ##################
 
-# copy prerun bash shell script (checks for existence of nzbget config)
-ADD start.sh /home/nobody/start.sh
-
 # add supervisor conf file for app
-ADD nzbget.conf /etc/supervisor/conf.d/nzbget.conf
+ADD *.conf /etc/supervisor/conf.d/
 
 # add install bash script
 ADD install.sh /root/install.sh
+
+# copy prerun bash shell script (checks for existence of nzbget config)
+ADD start.sh /home/nobody/start.sh
 
 # install app
 #############
 
 # make executable and run bash scripts to install app
-RUN chmod +x /root/install.sh /home/nobody/start.sh && \
+RUN chmod +x /root/*.sh /home/nobody/*.sh && \
 	/bin/bash /root/install.sh
 	
 # docker settings
