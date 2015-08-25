@@ -14,6 +14,3 @@ else
 	sed -i 's/MainDir=~\/downloads/MainDir=\/data/g' /config/nzbget.conf
 	
 fi
-
-#run nzbget specifying config path and daemon flag
-/usr/bin/nzbget -D -c /config/nzbget.conf
