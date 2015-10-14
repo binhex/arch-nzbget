@@ -4,7 +4,7 @@
 set -e
 
 # define pacman packages
-pacman_packages="unzip unrar nzbget"
+pacman_packages="unzip unrar ncurses nzbget"
 
 # install pre-reqs
 pacman -Sy --noconfirm
