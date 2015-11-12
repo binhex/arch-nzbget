@@ -7,7 +7,7 @@ set -e
 pacman_packages="unzip unrar nzbget"
 
 # install pre-reqs
-pacman -Sy --noconfirm
+pacman -Syu --ignore filesystem --noconfirm
 pacman -S --needed $pacman_packages --noconfirm
 
 # set permissions
