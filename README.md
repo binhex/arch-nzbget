@@ -1,32 +1,50 @@
-NZBGet
-======
+**Application**
 
-NZBGet - http://nzbget.net/
+[NZBGet](http://nzbget.net/)
 
-Latest NZBGet Git Test branch from Arch Linux AUR using Packer to compile.
+**Application description**
 
-**Pull image**
+NZBGet is a cross-platform binary newsgrabber for nzb files, written in C++. It supports client/server mode, automatic par-check/-repair, web-interface, command-line interface, etc. NZBGet requires low system resources and runs great on routers, NAS-devices and media players.
 
+**Build notes**
+
+Latest stable release from Arch Linux repo.
+
+**Usage**
 ```
-docker pull binhex/arch-nzbget
-```
-
-**Run container**
-
-```
-docker run -d -p 6789:6789 --name=<container name> -v <path for media files>:/media -v <path for data files>:/data -v <path for config files>:/config -v /etc/localtime:/etc/localtime:ro binhex/arch-nzbget
+docker run -d \
+	-p 6789:6789 \
+	--name=<container name> \
+	-v <path for media files>:/media \
+	-v <path for data files>:/data \
+	-v <path for config files>:/config \
+	-v /etc/localtime:/etc/localtime:ro \
+	binhex/arch-nzbget
 ```
 
 Please replace all user variables in the above command defined by <> with the correct values.
 
 **Access application**
 
+`http://<host ip>:6789`
+
+username:- nzbget
+password:- tegbzn6789
+
+**Example**
 ```
-http://<host ip>:6789
+docker run -d \
+	-p 6789:6789 \
+	--name=nzbget \
+	-v /media/movies:/media \
+	-v /apps/docker/sabnzbd/watched:/data \
+	-v /apps/docker/nzbget:/config \
+	-v /etc/localtime:/etc/localtime:ro \
+	binhex/arch-nzbget
 ```
 
-Default credentials
+**Notes**
 
-username: nzbget
-password: tegbzn6789
+N/A
 
+[Support forum](http://lime-technology.com/forum/index.php?topic=38055.0)
