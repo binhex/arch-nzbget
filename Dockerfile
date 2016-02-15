@@ -5,13 +5,13 @@ MAINTAINER binhex
 ##################
 
 # add supervisor conf file for app
-ADD *.conf /etc/supervisor/conf.d/
+ADD setup/*.conf /etc/supervisor/conf.d/
 
 # add install bash script
-ADD install.sh /root/install.sh
+ADD setup/install.sh /root/install.sh
 
 # copy prerun bash shell script (checks for existence of nzbget config)
-ADD start.sh /home/nobody/start.sh
+ADD setup/start.sh /home/nobody/start.sh
 
 # install app
 #############
@@ -35,8 +35,8 @@ VOLUME /media
 # expose port for http
 EXPOSE 6789
 
-# run supervisor
-################
+# set permissions
+#################
 
-# run supervisor
-CMD ["supervisord", "-c", "/etc/supervisor.conf", "-n"]
+# run script to set uid, gid and permissions
+CMD ["/bin/bash", "/root/init.sh"]
