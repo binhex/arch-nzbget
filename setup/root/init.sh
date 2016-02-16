@@ -38,8 +38,8 @@ else
 fi
 
 # set permissions inside container
-chown -R "${UID}":"${GID}" /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh
-chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody/start.sh
+chown -R "${UID}":"${GID}" /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody
+chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody
 
 echo "[info] Starting Supervisor..."
 
