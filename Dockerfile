@@ -10,6 +10,9 @@ ADD setup/*.conf /etc/supervisor/conf.d/
 # add install bash script
 ADD setup/install.sh /root/install.sh
 
+# add bash scripts to set uid and gid and then set permissions
+ADD setup/init.sh /root/init.sh
+
 # copy prerun bash shell script (checks for existence of nzbget config)
 ADD setup/start.sh /home/nobody/start.sh
 
