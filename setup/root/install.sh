@@ -4,10 +4,13 @@
 set -e
 
 # define pacman packages
-pacman_packages="unzip unrar nzbget"
+pacman_packages="unzip unrar"
 
 # install pre-reqs
 pacman -S --needed $pacman_packages --noconfirm
+
+# call arch official repo script
+source /root/aor.sh
 
 # cleanup
 yes|pacman -Scc
