@@ -44,4 +44,4 @@ chmod -R 775 /usr/bin/nzbget /usr/share/nzbget/nzbget.conf /home/nobody
 echo "[info] Starting Supervisor..."
 
 # run supervisor
-"/usr/bin/supervisord" -c "/etc/supervisor.conf" -n
+exec /usr/bin/supervisord -c /etc/supervisor.conf -n
