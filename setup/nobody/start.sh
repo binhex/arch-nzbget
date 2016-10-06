@@ -16,4 +16,4 @@ else
 fi
 
 # start nzbget non-daemonised and specify config file
-/usr/bin/nzbget -D -c /config/nzbget.conf
+/usr/bin/nzbget -c /config/nzbget.conf -s
