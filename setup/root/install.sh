@@ -30,7 +30,7 @@ fi
 ####
 
 # define arch official repo (aor) packages
-aor_packages="openssl nzbget"
+aor_packages="nzbget"
 
 # call aor script (arch official repo)
 source /root/aor.sh
