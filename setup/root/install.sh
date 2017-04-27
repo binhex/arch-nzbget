@@ -19,7 +19,7 @@ find /tmp/scripts-master/ -type f -name '*.sh' -exec mv -i {} /root/  \;
 ####
 
 # define pacman packages
-pacman_packages=""
+pacman_packages="openssl-1.0"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
