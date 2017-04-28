@@ -19,7 +19,7 @@ find /tmp/scripts-master/ -type f -name '*.sh' -exec mv -i {} /root/  \;
 ####
 
 # define pacman packages
-pacman_packages="openssl-1.0"
+pacman_packages=""
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -72,4 +72,5 @@ rm /tmp/permissions_heredoc
 yes|pacman -Scc
 rm -rf /usr/share/locale/*
 rm -rf /usr/share/man/*
+rm -rf /usr/share/gtk-doc/*
 rm -rf /tmp/*
