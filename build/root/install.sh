@@ -15,6 +15,15 @@ unzip /tmp/scripts-master.zip -d /tmp
 # move shell scripts to /root
 mv /tmp/scripts-master/shell/arch/docker/*.sh /root/
 
+# archive packages
+####
+
+# define archive packages
+arc_packages="unrar~1:5.6.5-1"
+
+# call arc script (arch archive repo)
+source /root/arc.sh
+
 # pacman packages
 ####
 
