@@ -19,7 +19,7 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /root/
 ####
 
 # define archive packages
-arc_packages="unrar~1:5.6.5-1"
+arc_packages="unrar~1:5.5.8-1"
 
 # call arc script (arch archive repo)
 source /root/arc.sh
