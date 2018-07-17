@@ -19,7 +19,7 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /root/
 ####
 
 # define pacman packages
-pacman_packages="p7zip"
+pacman_packages="libxml2 p7zip python"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -30,7 +30,7 @@ fi
 ####
 
 # define arch official repo (aor) packages
-aor_packages="nzbget"
+aor_packages=""
 
 # call aor script (arch official repo)
 source /root/aor.sh
@@ -44,14 +44,11 @@ aur_packages=""
 # call aur install script (arch user repo)
 source /root/aur.sh
 
-# archive packages
+# custom installer
 ####
 
-# define archive packages
-arc_packages="unrar~1:5.5.8-1-x86_64"
-
-# call arc script (arch archive repo)
-source /root/arc.sh
+# call custom install script
+source /root/custom.sh
 
 # config
 ####
@@ -60,7 +57,7 @@ source /root/arc.sh
 ####
 
 # define comma separated list of paths 
-install_paths="/usr/share/nzbget,/home/nobody"
+install_paths="/usr/local/bin/nzbget,/home/nobody"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"

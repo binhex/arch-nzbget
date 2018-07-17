@@ -10,7 +10,7 @@ else
 	echo "[info] NZBGet configuration does not exist, copying default configuration file to /config/..."
 
 	# copy to /config
-	cp /usr/share/nzbget/nzbget.conf /config/
+	cp /usr/local/bin/nzbget/nzbget.conf /config/
 
 	# set maindir to /data folder for downloads
 	sed -i 's/MainDir=~\/downloads/MainDir=\/data/g' /config/nzbget.conf
@@ -21,4 +21,4 @@ fi
 mkdir -p /data/dst
 
 # start nzbget non-daemonised and specify config file (close stdout due to chatter)
-/usr/bin/nzbget -c /config/nzbget.conf -s 1>&-
+/usr/local/bin/nzbget/nzbget -c /config/nzbget.conf -s 1>&-
