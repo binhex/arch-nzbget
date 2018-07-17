@@ -12,8 +12,5 @@ download_filename="nzbget.*bin-linux.run"
 # download nzbget binary installer
 /root/github.sh -df "${download_filename}" -dp "/tmp" -ep "" -ip "${install_path}" -go "nzbget" -gr "nzbget" -rt "binary"
 
-# make installer executable
-chmod +x ${install_path}/${download_filename}
-
 # run installer to install nzbget and dependencies
-${install_path}/${download_filename}
+"${install_path}"'/nzbget*bin-linux.run'
