@@ -14,3 +14,6 @@ download_filename="nzbget.*bin-linux.run"
 
 # run installer to install nzbget and dependencies
 "${install_path}"/nzbget*bin-linux.run
+
+# remove installer
+rm -f "${install_path}"/nzbget*bin-linux.run
