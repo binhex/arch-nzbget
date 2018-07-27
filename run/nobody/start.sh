@@ -17,6 +17,11 @@ else
 
 fi
 
+# Due to the change in install location we need to patch the NZBGet configuration
+# file for the WebDir - triggered by switch from AOR package to NZBGet GitHub installer
+echo "[info] Patching NZBGet config file for WebDir location..."
+sed -i -e 's~WebDir=/usr/share/webui~WebDir=${AppDir}/webui~g' /config/nzbget.conf
+
 # need to create dst folder as its not auto generated (used to store nzb logs)
 mkdir -p /data/dst
 
