@@ -23,4 +23,4 @@ sed -i -e 's~WebDir=/usr/share/nzbget/webui~WebDir=${AppDir}/webui~g' /config/nz
 sed -i -e 's~ConfigTemplate=/usr/share/nzbget/nzbget.conf~ConfigTemplate=${AppDir}/nzbget.conf~g' /config/nzbget.conf
 
 # start nzbget non-daemonised and specify config file (close stdout due to chatter)
-/usr/local/bin/nzbget/nzbget -c /config/nzbget.conf -s 1>&-
+/usr/local/bin/nzbget/nzbget --option UnrarCmd=/usr/bin/unrar -c /config/nzbget.conf -s 1>&-

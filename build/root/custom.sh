@@ -17,3 +17,6 @@ cd "${install_path}" && ./nzbget*bin-linux.run --arch x86_64 --destdir .
 
 # remove installer
 rm -f "${install_path}"/nzbget*bin-linux.run
+
+# remove statically built unrar as it looks buggy, see here https://forum.nzbget.net/viewtopic.php?f=3&t=3237
+rm -f /usr/local/bin/nzbget/unrar

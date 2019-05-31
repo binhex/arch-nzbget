@@ -19,7 +19,7 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /root/
 ####
 
 # define pacman packages
-pacman_packages="libxml2 p7zip python"
+pacman_packages="libxml2 p7zip unrar python"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
