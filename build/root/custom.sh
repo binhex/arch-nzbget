@@ -3,11 +3,11 @@
 # exit script if return code != 0
 set -e
 
-install_path="/usr/local/bin/nzbget"
-download_filename="nzbget.*bin-linux.run"
-
 # github releases
 ####
+
+install_path="/usr/local/bin/nzbget"
+download_filename="nzbget.*bin-linux.run"
 
 # download nzbget binary installer
 github.sh -df "${download_filename}" -da "${download_filename}" -dp "/tmp" -ep "" -ip "${install_path}" -go "nzbget" -gr "nzbget" -rt "binary"
