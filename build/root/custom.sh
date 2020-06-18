@@ -6,17 +6,11 @@ set -e
 # github releases
 ####
 
-install_path="/usr/local/bin/nzbget"
-download_filename="nzbget.*bin-linux.run"
-
 # download nzbget binary installer
-github.sh -df "${download_filename}" -da "${download_filename}" -dp "/tmp" -ep "" -ip "${install_path}" -go "nzbget" -gr "nzbget" -rt "binary"
-
-# run installer to install nzbget and dependencies
-cd "${install_path}" && ./nzbget*bin-linux.run --arch x86_64 --destdir .
+github.sh --install-path "/usr/local/bin/nzbget" --github-owner "nzbget" --github-repo "nzbget" --download-assets "nzbget.*bin-linux.run" --compile-src 'chmod +x nzbget*bin-linux.run && ./nzbget*bin-linux.run --arch x86_64 --destdir .'
 
 # remove installer
-rm -f "${install_path}"/nzbget*bin-linux.run
+rm -f "/usr/local/bin/nzbget/nzbget*bin-linux.run"
 
 # remove statically built unrar as it looks buggy, see here https://forum.nzbget.net/viewtopic.php?f=3&t=3237
 rm -f /usr/local/bin/nzbget/unrar
