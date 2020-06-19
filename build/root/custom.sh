@@ -17,10 +17,10 @@ rm -f /usr/local/bin/nzbget/unrar
 
 # install specific version of libunrar (5.6.3 - last known working version) to try and prevent 'stuck' operation on unpack
 package_name="libunrar.tar.xz"
-curly.sh -rc 6 -rw 10 -of "/tmp/${package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/${OS_ARCH}/${package_name}"
+curly.sh -of "/tmp/${package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/${OS_ARCH}/${package_name}"
 pacman -U "/tmp/${package_name}" --noconfirm
 
 # install specific version of unrar (5.6.3 - last known working version) to try and prevent 'stuck' operation on unpack
 package_name="unrar.tar.xz"
-curly.sh -rc 6 -rw 10 -of "/tmp/${package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/${OS_ARCH}/${package_name}"
+curly.sh -of "/tmp/${package_name}" -url "https://github.com/binhex/arch-packages/raw/master/compiled/${OS_ARCH}/${package_name}"
 pacman -U "/tmp/${package_name}" --noconfirm
