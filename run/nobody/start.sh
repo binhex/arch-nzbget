@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/dumb-init /bin/bash
 
 # check if nzbget.conf exists, if not copy default config
 if [[ -f /config/nzbget.conf ]]; then
