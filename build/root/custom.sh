@@ -24,3 +24,7 @@ pacman -U "/tmp/${package_name}" --noconfirm
 package_name="unrar.tar.xz"
 rcurl.sh -o "/tmp/${package_name}" "https://github.com/binhex/packages/raw/master/compiled/${TARGETARCH}/${package_name}"
 pacman -U "/tmp/${package_name}" --noconfirm
+
+# openssl 1.0.x will fail the connection when it detects the expired certificate, replace with updated pem
+# see https://github.com/nzbget/nzbget/issues/784#issuecomment-931609658
+rcurl.sh -o "/usr/local/bin/nzbget/cacert.pem" -L "https://nzbget.net/info/cacert.pem"
