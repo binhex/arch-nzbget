@@ -36,7 +36,7 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/
 ####
 
 # define pacman packages
-pacman_packages="libxml2 p7zip python par2cmdline"
+pacman_packages="git base-devel unrar libxml2 p7zip python par2cmdline"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -65,7 +65,7 @@ source /root/custom.sh
 ####
 
 # define comma separated list of paths
-install_paths="/usr/local/bin/nzbget,/home/nobody"
+install_paths="/usr/local/share/nzbget,/home/nobody"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
