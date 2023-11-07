@@ -31,5 +31,8 @@ sed -i -e "s~^WebDir=.*~WebDir=${app_path}/webui~g" "${config_filepath}"
 # set config template path based off app path
 sed -i -e "s~^ConfigTemplate=.*~ConfigTemplate=${app_path}/nzbget.conf~g" "${config_filepath}"
 
+# set cert store path based off app path
+sed -i -e "s~^CertStore=.*~CertStore=${app_path}/cacert.pem~g" "${config_filepath}"
+
 echo "[info] Starting NZBGet non-daemonised and specify config file (close stdout due to chatter)..."
 /usr/local/bin/nzbget --option UnrarCmd=/usr/sbin/unrar -c "${config_filepath}" -s 1>&-

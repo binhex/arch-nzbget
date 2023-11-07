@@ -20,3 +20,6 @@ make
 
 # install from compiled source
 make install
+
+# copy cert from nzbget to fix tls issues
+curl -o '/usr/local/share/nzbget/cacert.pem' -L https://nzbget.net/info/cacert.pem
