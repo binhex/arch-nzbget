@@ -19,7 +19,7 @@ else
 	cp "${app_path}/nzbget.conf" /config/
 
 	# set maindir to /data folder for downloads
-	sed -i 's/^MainDir=.*/MainDir=\/data/g' "${config_filepath}"
+	sed -i 's~^MainDir=.*~MainDir=/data~g' "${config_filepath}"
 
 fi
 

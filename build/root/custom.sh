@@ -30,6 +30,9 @@ app_path='/usr/local/share/nzbget'
 # define path to config file copied to /config
 config_filepath="${app_path}/nzbget.conf"
 
+# set maindir to /data folder for downloads
+sed -i -e 's~^MainDir=.*~MainDir=/data~g' "${config_filepath}"
+
 # set web path baed off app path
 sed -i -e "s~^WebDir=.*~WebDir=${app_path}/webui~g" "${config_filepath}"
 
