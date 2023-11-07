@@ -23,7 +23,8 @@ else
 
 fi
 
-echo "[info] Patching NZBGet config file for WebDir and ConfigTemplate locations..."
+# <snip> TODO remove this after nov 2024
+echo "[info] Patching NZBGet-NG config file for existing users..."
 
 # set web path baed off app path
 sed -i -e "s~^WebDir=.*~WebDir=${app_path}/webui~g" "${config_filepath}"
@@ -33,6 +34,7 @@ sed -i -e "s~^ConfigTemplate=.*~ConfigTemplate=${app_path}/nzbget.conf~g" "${con
 
 # set cert store path based off app path
 sed -i -e "s~^CertStore=.*~CertStore=${app_path}/cacert.pem~g" "${config_filepath}"
+# </snip>
 
 echo "[info] Starting NZBGet non-daemonised and specify config file (close stdout due to chatter)..."
 /usr/local/bin/nzbget --option UnrarCmd=/usr/sbin/unrar -c "${config_filepath}" -s 1>&-

@@ -23,3 +23,18 @@ make install
 
 # copy cert from nzbget to fix tls issues - see https://github.com/nzbget/nzbget/issues/784#issuecomment-931609658
 curl -o '/usr/local/share/nzbget/cacert.pem' -L https://nzbget.net/info/cacert.pem
+
+# define path to webdir and config template
+app_path='/usr/local/share/nzbget'
+
+# define path to config file copied to /config
+config_filepath="${app_path}/nzbget.conf"
+
+# set web path baed off app path
+sed -i -e "s~^WebDir=.*~WebDir=${app_path}/webui~g" "${config_filepath}"
+
+# set config template path based off app path
+sed -i -e "s~^ConfigTemplate=.*~ConfigTemplate=${app_path}/nzbget.conf~g" "${config_filepath}"
+
+# set cert store path based off app path
+sed -i -e "s~^CertStore=.*~CertStore=${app_path}/cacert.pem~g" "${config_filepath}"
