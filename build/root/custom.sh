@@ -41,3 +41,6 @@ sed -i -e "s~^ConfigTemplate=.*~ConfigTemplate=${app_path}/nzbget.conf~g" "${con
 
 # set cert store path based off app path
 sed -i -e "s~^CertStore=.*~CertStore=${app_path}/cacert.pem~g" "${config_filepath}"
+
+# disable update check as we are running from dev branch right now
+sed -i -e "s~^UpdateCheck=.*~UpdateCheck=none~g" "${config_filepath}"
