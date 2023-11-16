@@ -3,7 +3,7 @@
 # exit script if return code != 0
 set -e
 
-# github releases
+# nzbget compile
 ####
 
 # create location to store clone source
@@ -44,3 +44,19 @@ sed -i -e "s~^CertStore=.*~CertStore=${app_path}/cacert.pem~g" "${config_filepat
 
 # disable update check as we are running from dev branch right now
 sed -i -e "s~^UpdateCheck=.*~UpdateCheck=none~g" "${config_filepath}"
+
+# unrar compile
+####
+
+# compile unrar from source to attempt unpack hang fix
+# note src 6.2.13 equates to '6.24'
+# note src 7.0.3 equates to '7.00 beta 1 version'
+cd /tmp
+#curl -o unrar.tar.gz -L https://www.rarlab.com/rar/unrarsrc-6.2.12.tar.gz
+curl -o unrar.tar.gz -L https://www.rarlab.com/rar/unrarsrc-7.0.3.tar.gz
+# backup pre-compiled unrar from ich777
+#https://github.com/ich777/unrar/releases/download/7.0.3/rar-v7.0.3.tar.gz
+tar -xvf unrar.tar.gz
+cd unrar
+make -f makefile
+cp ./unrar /usr/bin/
