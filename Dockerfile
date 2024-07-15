@@ -30,9 +30,6 @@ RUN chmod +x /root/*.sh /home/nobody/*.sh && \
 # docker settings
 #################
 
-# expose port for http
-EXPOSE 6789
-
 # set permissions
 #################
 
