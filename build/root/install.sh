@@ -39,7 +39,7 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/
 ####
 
 # define pacman packages
-pacman_packages="git github-cli base-devel unrar libxml2 p7zip python par2cmdline"
+pacman_packages="git github-cli base-devel unrar libxml2 7zip python par2cmdline"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
