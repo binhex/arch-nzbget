@@ -1,18 +1,23 @@
-**Application**
+# Application
 
 [NZBGet](http://nzbget.net/)
 
-**Description**
+## Description
 
-NZBGet is a cross-platform binary newsgrabber for nzb files, written in C++. It supports client/server mode, automatic par-check/-repair, web-interface, command-line interface, etc. NZBGet requires low system resources and runs great on routers, NAS-devices and media players.
+NZBGet is a cross-platform binary newsgrabber for nzb files, written in C++. It
+supports client/server mode, automatic par-check/-repair, web-interface,
+command-line interface, etc. NZBGet requires low system resources and runs great
+on routers, NAS-devices and media players.
 
-**Build notes**
+## Build notes
 
 Latest stable release from Arch Linux repo.
 
-**Usage**
-```
+## Usage
+
+```bash
 docker run -d \
+
     -p 6789:6789 \
     --name=<container name> \
     -v <path for media files>:/media \
@@ -22,21 +27,26 @@ docker run -d \
     -e UMASK=<umask for created files> \
     -e PUID=<uid for user> \
     -e PGID=<gid for user> \
+
     binhex/arch-nzbget
+
 ```
 
-Please replace all user variables in the above command defined by <> with the correct values.
+Please replace all user variables in the above command defined by <> with the
+correct values.
 
-**Access application**
+## Access application
 
 `http://<host ip>:6789`
 
 username:- nzbget
 password:- tegbzn6789
 
-**Example**
-```
+## Example
+
+```bash
 docker run -d \
+
     -p 6789:6789 \
     --name=nzbget \
     -v /media/movies:/media \
@@ -46,16 +56,21 @@ docker run -d \
     -e UMASK=000 \
     -e PUID=0 \
     -e PGID=0 \
+
     binhex/arch-nzbget
-```
-
-**Notes**
-
-User ID (PUID) and Group ID (PGID) can be found by issuing the following command for the user you want to run the container as:-
 
 ```
+
+## Notes
+
+User ID (PUID) and Group ID (PGID) can be found by issuing the following command
+for the user you want to run the container as:-
+
+```bash
 id <username>
+
 ```
+
 ___
 If you appreciate my work, then please consider buying me a beer  :D
 
