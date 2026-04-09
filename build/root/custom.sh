@@ -18,17 +18,14 @@ config_filepath="${app_path}/nzbget.conf"
 # create location to store downloaded installer
 mkdir -p "${download_path}" & cd "${download_path}"
 
-# this command uses github cli (gh) to downlad the latest release from nzbgetcom/nzbget
-# the 'GH_HOST' and '-R' options allow for non authenticated downloads from public repositories
-# which maybe actually a bug, as 'gh' currently enforces authentication, even for public repos
-# see the following issue for details https://github.com/cli/cli/issues/2680#issuecomment-1345491083
-GH_HOST='public-auth-workaround' gh release download -R github.com/nzbgetcom/nzbget -p nzbget*-bin-linux.run
+# download github release binary
+gh.sh --github-owner nzbgetcom --github-repo nzbget --download-type release --release-type binary --download-path /tmp --asset-regex 'nzbget.*-bin-linux.run'
 
 # run downloaded nzbget installer and then delete
-chmod +x ./nzbget*-bin-linux.run && ./nzbget*-bin-linux.run && rm -f ./nzbget*-bin-linux.run
+chmod +x /tmp/nzbget*-bin-linux.run && /tmp/nzbget*-bin-linux.run && rm -f /tmp/nzbget*-bin-linux.run
 
-# copy cert from nzbget to fix tls issues - see https://github.com/nzbget/nzbget/issues/784#issuecomment-931609658
-curl -o "${app_path}/cacert.pem" -L https://nzbget.net/info/cacert.pem
+# copy mozzilla root CA certs in pem format, required for nzbget
+curl -o "${app_path}/cacert.pem" -L https://curl.se/ca/cacert.pem
 
 # set maindir to /data folder for downloads
 sed -i -e 's~^MainDir=.*~MainDir=/data~g' "${config_filepath}"
