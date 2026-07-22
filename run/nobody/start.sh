@@ -39,5 +39,6 @@ sed -i -e "s~^CertStore=.*~CertStore=${app_path}/cacert.pem~g" "${config_filepat
 sed -i -e "s~^UpdateCheck=.*~UpdateCheck=none~g" "${config_filepath}"
 # </snip>
 
-echo "[info] Starting NZBGet non-daemonised and specify config file (close stdout due to chatter)..."
-"${app_path}/nzbget" --option UnrarCmd=/usr/sbin/unrar -c "${config_filepath}" -s 1>&-
+echo "[info] Starting NZBGet non-daemonised and specify config file..."
+# note OutputMode=log required to override the default of curses, which causes issues for docker (headless)
+"${app_path}/nzbget" -s --option UnrarCmd=/usr/sbin/unrar -c "${config_filepath}" -o OutputMode=log
